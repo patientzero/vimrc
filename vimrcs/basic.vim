@@ -33,6 +33,7 @@
 " Sets how many lines of history VIM has to remember
 set history=500
 
+set number
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -140,7 +141,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme desert
+    colorscheme solarized
 catch
 endtry
 
@@ -152,8 +153,8 @@ if has("gui_running")
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
+    set guifont=JetBrains\ Mono\ 14
 endif
-
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
