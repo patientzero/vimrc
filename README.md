@@ -2,7 +2,7 @@
 
 # The Ultimate vimrc
 
-![Original Version](https://github.com/amix/vimrc)
+[Original Version](https://github.com/amix/vimrc)
 
 This is my personal fork for configuration purposes.
 
