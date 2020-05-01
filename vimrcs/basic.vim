@@ -1,13 +1,13 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: 
-"       Amir Salihefendic — @amix3k
+"       Sebastian Bayerl — @patientzero
 "
 " Awesome_version:
 "       Get this config, nice color schemes and lots of plugins!
 "
 "       Install the awesome version from:
 "
-"           https://github.com/amix/vimrc
+"           https://github.com/patientzero/vimrc
 "
 " Sections:
 "    -> General
@@ -56,6 +56,9 @@ nmap <leader>w :w!<cr>
 " (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
+" Use the system clipboard after leader
+noremap <leader>y "*y
+noremap <leader>p "*p
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
