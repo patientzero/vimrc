@@ -1,4 +1,5 @@
 g:gitgutter_async	gitgutter.txt	/*g:gitgutter_async*
+g:gitgutter_close_preview_on_escape	gitgutter.txt	/*g:gitgutter_close_preview_on_escape*
 g:gitgutter_diff_args	gitgutter.txt	/*g:gitgutter_diff_args*
 g:gitgutter_diff_base	gitgutter.txt	/*g:gitgutter_diff_base*
 g:gitgutter_diff_relative_to	gitgutter.txt	/*g:gitgutter_diff_relative_to*
@@ -11,15 +12,17 @@ g:gitgutter_highlight_lines	gitgutter.txt	/*g:gitgutter_highlight_lines*
 g:gitgutter_log	gitgutter.txt	/*g:gitgutter_log*
 g:gitgutter_map_keys	gitgutter.txt	/*g:gitgutter_map_keys*
 g:gitgutter_max_signs	gitgutter.txt	/*g:gitgutter_max_signs*
-g:gitgutter_override_sign_column_highlight	gitgutter.txt	/*g:gitgutter_override_sign_column_highlight*
 g:gitgutter_preview_win_floating	gitgutter.txt	/*g:gitgutter_preview_win_floating*
 g:gitgutter_preview_win_location	gitgutter.txt	/*g:gitgutter_preview_win_location*
+g:gitgutter_set_sign_backgrounds	gitgutter.txt	/*g:gitgutter_set_sign_backgrounds*
+g:gitgutter_show_msg_on_hunk_jumping	gitgutter.txt	/*g:gitgutter_show_msg_on_hunk_jumping*
 g:gitgutter_sign_added	gitgutter.txt	/*g:gitgutter_sign_added*
 g:gitgutter_sign_allow_clobber	gitgutter.txt	/*g:gitgutter_sign_allow_clobber*
 g:gitgutter_sign_modified	gitgutter.txt	/*g:gitgutter_sign_modified*
 g:gitgutter_sign_modified_removed	gitgutter.txt	/*g:gitgutter_sign_modified_removed*
 g:gitgutter_sign_priority	gitgutter.txt	/*g:gitgutter_sign_priority*
 g:gitgutter_sign_removed	gitgutter.txt	/*g:gitgutter_sign_removed*
+g:gitgutter_sign_removed_above_and_below	gitgutter.txt	/*g:gitgutter_sign_removed_above_and_below*
 g:gitgutter_sign_removed_first_line	gitgutter.txt	/*g:gitgutter_sign_removed_first_line*
 g:gitgutter_signs	gitgutter.txt	/*g:gitgutter_signs*
 g:gitgutter_terminal_reports_focus	gitgutter.txt	/*g:gitgutter_terminal_reports_focus*
@@ -40,6 +43,7 @@ gitgutter-:GitGutterNextHunk	gitgutter.txt	/*gitgutter-:GitGutterNextHunk*
 gitgutter-:GitGutterPrevHunk	gitgutter.txt	/*gitgutter-:GitGutterPrevHunk*
 gitgutter-:GitGutterPreviewHunk	gitgutter.txt	/*gitgutter-:GitGutterPreviewHunk*
 gitgutter-:GitGutterQuickFix	gitgutter.txt	/*gitgutter-:GitGutterQuickFix*
+gitgutter-:GitGutterQuickFixCurrentFile	gitgutter.txt	/*gitgutter-:GitGutterQuickFixCurrentFile*
 gitgutter-:GitGutterSignsDisable	gitgutter.txt	/*gitgutter-:GitGutterSignsDisable*
 gitgutter-:GitGutterSignsEnable	gitgutter.txt	/*gitgutter-:GitGutterSignsEnable*
 gitgutter-:GitGutterSignsToggle	gitgutter.txt	/*gitgutter-:GitGutterSignsToggle*
@@ -52,7 +56,7 @@ gitgutter-<Leader>hu	gitgutter.txt	/*gitgutter-<Leader>hu*
 gitgutter-[c	gitgutter.txt	/*gitgutter-[c*
 gitgutter-]c	gitgutter.txt	/*gitgutter-]c*
 gitgutter-ac	gitgutter.txt	/*gitgutter-ac*
-gitgutter-autocommand	gitgutter.txt	/*gitgutter-autocommand*
+gitgutter-autocommands	gitgutter.txt	/*gitgutter-autocommands*
 gitgutter-commands	gitgutter.txt	/*gitgutter-commands*
 gitgutter-faq	gitgutter.txt	/*gitgutter-faq*
 gitgutter-highlights	gitgutter.txt	/*gitgutter-highlights*

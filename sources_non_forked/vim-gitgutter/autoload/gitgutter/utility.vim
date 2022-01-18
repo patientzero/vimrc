@@ -9,25 +9,19 @@ endfunction
 function! gitgutter#utility#setbufvar(buffer, varname, val)
   let buffer = +a:buffer
   " Default value for getbufvar() was introduced in Vim 7.3.831.
-  let bvars = getbufvar(buffer, '')
-  if empty(bvars)
-    let bvars = {}
+  let ggvars = getbufvar(buffer, 'gitgutter')
+  if type(ggvars) == type('')
+    unlet ggvars
+    let ggvars = {}
+    call setbufvar(buffer, 'gitgutter', ggvars)
   endif
-  let dict = get(bvars, 'gitgutter', {})
-  let needs_setting = empty(dict)
-  let dict[a:varname] = a:val
-  if needs_setting
-    call setbufvar(buffer, 'gitgutter', dict)
-  endif
+  let ggvars[a:varname] = a:val
 endfunction
 
 function! gitgutter#utility#getbufvar(buffer, varname, ...)
-  let bvars = getbufvar(a:buffer, '')
-  if !empty(bvars)
-    let dict = get(bvars, 'gitgutter', {})
-    if has_key(dict, a:varname)
-      return dict[a:varname]
-    endif
+  let ggvars = getbufvar(a:buffer, 'gitgutter')
+  if type(ggvars) == type({}) && has_key(ggvars, a:varname)
+    return ggvars[a:varname]
   endif
   if a:0
     return a:1
@@ -36,7 +30,7 @@ endfunction
 
 function! gitgutter#utility#warn(message) abort
   echohl WarningMsg
-  echo 'vim-gitgutter: ' . a:message
+  echo a:message
   echohl None
   let v:warningmsg = a:message
 endfunction
@@ -45,7 +39,7 @@ function! gitgutter#utility#warn_once(bufnr, message, key) abort
   if empty(gitgutter#utility#getbufvar(a:bufnr, a:key))
     call gitgutter#utility#setbufvar(a:bufnr, a:key, '1')
     echohl WarningMsg
-    redraw | echom 'vim-gitgutter: ' . a:message
+    redraw | echom a:message
     echohl None
     let v:warningmsg = a:message
   endif
@@ -168,7 +162,7 @@ endfunction
 
 
 function! gitgutter#utility#cd_cmd(bufnr, cmd) abort
-  let cd = s:unc_path(a:bufnr) ? 'pushd' : (gitgutter#utility#windows() ? 'cd /d' : 'cd')
+  let cd = s:unc_path(a:bufnr) ? 'pushd' : (gitgutter#utility#windows() && s:dos_shell() ? 'cd /d' : 'cd')
   return cd.' '.s:dir(a:bufnr).' && '.a:cmd
 endfunction
 
@@ -176,26 +170,36 @@ function! s:unc_path(bufnr)
   return s:abs_path(a:bufnr, 0) =~ '^\\\\'
 endfunction
 
+function! s:dos_shell()
+  return &shell == 'cmd.exe' || &shell == 'command.com'
+endfunction
+
 function! s:use_known_shell() abort
   if has('unix') && &shell !=# 'sh'
-    let [s:shell, s:shellcmdflag, s:shellredir] = [&shell, &shellcmdflag, &shellredir]
+    let [s:shell, s:shellcmdflag, s:shellredir, s:shellpipe, s:shellquote, s:shellxquote] = [&shell, &shellcmdflag, &shellredir, &shellpipe, &shellquote, &shellxquote]
     let &shell = 'sh'
     set shellcmdflag=-c shellredir=>%s\ 2>&1
+  endif
+  if has('win32') && (&shell =~# 'pwsh' || &shell =~# 'powershell')
+    let [s:shell, s:shellcmdflag, s:shellredir, s:shellpipe, s:shellquote, s:shellxquote] = [&shell, &shellcmdflag, &shellredir, &shellpipe, &shellquote, &shellxquote]
+    let &shell = 'cmd.exe'
+    set shellcmdflag=/s\ /c shellredir=>%s\ 2>&1 shellpipe=>%s\ 2>&1 shellquote= shellxquote="
   endif
 endfunction
 
 function! s:restore_shell() abort
-  if has('unix') && exists('s:shell')
-    let [&shell, &shellcmdflag, &shellredir] = [s:shell, s:shellcmdflag, s:shellredir]
+  if (has('unix') || has('win32')) && exists('s:shell')
+    let [&shell, &shellcmdflag, &shellredir, &shellpipe, &shellquote, &shellxquote] = [s:shell, s:shellcmdflag, s:shellredir, s:shellpipe, s:shellquote, s:shellxquote]
   endif
 endfunction
 
-function! gitgutter#utility#set_diff_base_if_fugitive(bufnr)
+function! gitgutter#utility#get_diff_base(bufnr)
   let p = resolve(expand('#'.a:bufnr.':p'))
   let ml = matchlist(p, '\v^fugitive:/.*/(\x{40,})/')
   if !empty(ml) && !empty(ml[1])
-    let g:gitgutter_diff_base = ml[1].'^'
+    return ml[1].'^'
   endif
+  return g:gitgutter_diff_base
 endfunction
 
 function! s:abs_path(bufnr, shellesc)
