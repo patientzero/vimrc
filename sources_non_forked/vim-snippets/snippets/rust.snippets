@@ -147,7 +147,11 @@ snippet loop "loop {}" b
 		${0:${VISUAL}}
 	}
 snippet wh "while loop"
-	while ${1:condition} {
+	while $1 {
+		${0:${VISUAL}}
+	}
+snippet whl "while let (...)"
+	while let ${1:Some($2)} = $3 {
 		${0:${VISUAL}}
 	}
 snippet whl "while let (...)"
