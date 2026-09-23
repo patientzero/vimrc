@@ -10,6 +10,7 @@ g:vim_markdown_anchorexpr	vim-markdown.txt	/*g:vim_markdown_anchorexpr*
 g:vim_markdown_auto_extension_ext	vim-markdown.txt	/*g:vim_markdown_auto_extension_ext*
 g:vim_markdown_auto_insert_bullets	vim-markdown.txt	/*g:vim_markdown_auto_insert_bullets*
 g:vim_markdown_autowrite	vim-markdown.txt	/*g:vim_markdown_autowrite*
+g:vim_markdown_borderless_table	vim-markdown.txt	/*g:vim_markdown_borderless_table*
 g:vim_markdown_conceal	vim-markdown.txt	/*g:vim_markdown_conceal*
 g:vim_markdown_conceal_code_blocks	vim-markdown.txt	/*g:vim_markdown_conceal_code_blocks*
 g:vim_markdown_edit_url_in	vim-markdown.txt	/*g:vim_markdown_edit_url_in*
@@ -34,7 +35,7 @@ vim-markdown-[[	vim-markdown.txt	/*vim-markdown-[[*
 vim-markdown-[]	vim-markdown.txt	/*vim-markdown-[]*
 vim-markdown-][	vim-markdown.txt	/*vim-markdown-][*
 vim-markdown-]]	vim-markdown.txt	/*vim-markdown-]]*
-vim-markdown-]c	vim-markdown.txt	/*vim-markdown-]c*
+vim-markdown-]h	vim-markdown.txt	/*vim-markdown-]h*
 vim-markdown-]u	vim-markdown.txt	/*vim-markdown-]u*
 vim-markdown-adjust-new-list-item-indent	vim-markdown.txt	/*vim-markdown-adjust-new-list-item-indent*
 vim-markdown-auto-write-when-following-link	vim-markdown.txt	/*vim-markdown-auto-write-when-following-link*
@@ -65,6 +66,7 @@ vim-markdown-options	vim-markdown.txt	/*vim-markdown-options*
 vim-markdown-references	vim-markdown.txt	/*vim-markdown-references*
 vim-markdown-set-header-folding-level	vim-markdown.txt	/*vim-markdown-set-header-folding-level*
 vim-markdown-strikethrough	vim-markdown.txt	/*vim-markdown-strikethrough*
+vim-markdown-support-borderless-tables	vim-markdown.txt	/*vim-markdown-support-borderless-tables*
 vim-markdown-syntax-concealing	vim-markdown.txt	/*vim-markdown-syntax-concealing*
 vim-markdown-syntax-extensions	vim-markdown.txt	/*vim-markdown-syntax-extensions*
 vim-markdown-text-emphasis-restriction-to-single-lines	vim-markdown.txt	/*vim-markdown-text-emphasis-restriction-to-single-lines*
@@ -73,8 +75,10 @@ vim-markdown-yaml-front-matter	vim-markdown.txt	/*vim-markdown-yaml-front-matter
 vim-markdown-zA	vim-markdown.txt	/*vim-markdown-zA*
 vim-markdown-zC	vim-markdown.txt	/*vim-markdown-zC*
 vim-markdown-zM	vim-markdown.txt	/*vim-markdown-zM*
+vim-markdown-zO	vim-markdown.txt	/*vim-markdown-zO*
 vim-markdown-zR	vim-markdown.txt	/*vim-markdown-zR*
 vim-markdown-za	vim-markdown.txt	/*vim-markdown-za*
 vim-markdown-zc	vim-markdown.txt	/*vim-markdown-zc*
 vim-markdown-zm	vim-markdown.txt	/*vim-markdown-zm*
+vim-markdown-zo	vim-markdown.txt	/*vim-markdown-zo*
 vim-markdown-zr	vim-markdown.txt	/*vim-markdown-zr*
